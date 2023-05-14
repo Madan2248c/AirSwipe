@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirSwipe</title>
+    <link rel="stylesheet" href="index.css">
+
+
+    <style>
+      .sidebar {
+          border-radius: 25px 0px 0px 25px;
+          position: fixed;
+          top: 50%;
+          right: -700px;
+          transform: translateY(-50%);
+          width: 350px;
+          height: 100vh;
+          background-color: rgba(255,255,255,0.6);
+          background-image: "ai/qwerty.jpg";
+          transition: right 0.3s ease-in-out;
+          z-index: 999;
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+          
+      }
+  
+      .sidebar.active {
+          right: 0;
+      }
+  
+      .sidebar-content {
+          padding: 20px;
+          padding-left:10%;
+          font-family: 'Trebuchet MS', sans-serif;
+          color: #333;
+      }
+  
+      .sidebar h3 {
+          font-size: 18px;
+          margin-bottom: 10px;
+          color: #555;
+      }
+  
+ 
+  
+      .sidebar-close {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+          font-size: 20px;
+          color: #333;
+      }
+  
+      #sidebar-toggle {
+        background-color: transparent;
+        color: #fff;
+        font-family: "Trebuchet MS", sans-serif;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
+    }
+
+
+  </style>
+  
+
+</head>
+
+
+<body>
+
+
+    <header>
+      <button  id="sidebar-toggle">How to Use -></button>
+        <h1 class="header-title"  style="color:rgb(176, 241, 241)">Air Swipe</h1>
+    </header>
+
+
+    <div class="container">
+        <h2>Please enter your embedded PPT code </h2><br>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <textarea id="code" name="code" rows="8" placeholder="Enter your embedded code here..."></textarea>
+            <h2>OR<br>Upload a PDF</h2><br>
+            <input id="file-input" type="file" name="pdfFile" content>
+            <br><br>
+            <input style="font-family: 'Trebuchet MS';" class="button" type="submit" value="UPLOAD">
+        </form>
+    </div>
+
+    <div class="background">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <!-- Add the sidebar card HTML -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-content">
+          <h2>How to Use</h2><br><br>
+          <p>
+            <h3>The Air Swipe provides you the ease for you to present your presentations with your hand gestures </h3><br><br>
+            <ul>
+              <li><b>Next Slide:</b> Place your hand in front of the camera with your four fingers extended (excluding the thumb) in an upright position. Then, swipe your hand from right to left to navigate to the next slide.
+              </li><br>
+              <li><b>Previous Slide: </b>Raise your index, middle, and ring fingers while holding your hand in front of the camera. Then, swipe your hand from right to left to go back to the previous slide.
+              </li><br>
+              <li><b>Zoom In:</b> Hold up your index and thumb fingers in front of the camera and move them apart to zoom in on a specific area of the slide.
+              </li><br>
+              <li><b>Zoom Out:</b> Bring your middle finger and index finger together while separating your thumb finger, then move them closer together in front of the camera to zoom out.</p>
+              </li><br>
+            </ul>
+      </div>
+      <span class="sidebar-close" id="sidebar-close">&times;</span>
+  </div>
+
+    
+    <script>
+        // Add JavaScript to handle sidebar functionality
+        const sidebar = document.getElementById('sidebar');
+        const sidebarClose = document.getElementById('sidebar-close');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+
+        // Open the sidebar
+        function openSidebar() {
+            sidebar.classList.add('active');
+        }
+
+        // Close the sidebar
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+        }
+
+        // Event listeners
+        sidebarToggle.addEventListener('click', openSidebar);
+        sidebarClose.addEventListener('click', closeSidebar);
+    </script>
+
+
+</body>
+</html>
